@@ -30,7 +30,7 @@ const validation = {
     password: false,
     passwordCheck: false,
     isAllValidated: function () {
-        return this.id && this.password, this.passwordCheck
+        return this.id && this.password && this.passwordCheck
     },
 }
 
