@@ -10,15 +10,12 @@ const $idMessage = $form.querySelector('#id-msg')
 const $passwordMessage = $form.querySelector('#pw-msg')
 const $passwordCheckMessage = $form.querySelector('#pw-check-msg')
 
-const isBoolean = (o) => typeof o === 'boolean'
-const isTrue = (v) => v === true
-
 const validation = {
     id: false,
     pw: false,
     'pw-check': false,
     isAllValidated: function () {
-        return Object.values(this).filter(isBoolean).every(isTrue)
+        return this.id && this.pw && this['pw-check']
     },
 }
 
@@ -40,8 +37,8 @@ const onSubmitHandler = (e) => {
         $modal.showModal()
         const $confirm = $modal.querySelector('#confirm-id')
         const $confirmPw = $modal.querySelector('#confirm-pw')
-        $confirm.innerHTML = $id.value
-        $confirmPw.innerHTML = $password.value
+        $confirm.innerText = $id.value
+        $confirmPw.innerText = $password.value
         const $cancelBtn = $modal.querySelector('#cancel-btn')
         const $approveBtn = $modal.querySelector('#approve-btn')
         $cancelBtn.addEventListener('click', () => {
